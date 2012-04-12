@@ -1,3 +1,6 @@
+Clojure + Gradle
+================
+
 A Clojure project using Gradle and clojuresque plugin
 
 Try running:
