@@ -1,4 +1,5 @@
 apply plugin: "clojure"
+apply plugin: "eclipse"
 
 aotCompile = true
 
@@ -14,7 +15,14 @@ dependencies {
 /* Adds clojuresque to the (build) classpath
  */
 buildscript {
+/* Works on Gradle 1.0-milestone-9, however it doesn't on milestone-3
   repositories { maven { url "http://clojars.org/repo" } }
-  dependencies { classpath "clojuresque:clojuresque:1.4.5" }
+ */
+  repositories { mavenRepo ( urls: "http://clojars.org/repo" ) }
+/* Clojuresque 1.4.5 causes the following exception (also on milestone-3):
+Cause: Could not generate a proxy class for class clojuresque.ClojureCompileTask.
+Cause: org/gradle/internal/service/ServiceRegistry
+ */
+  dependencies { classpath "clojuresque:clojuresque:1.4.1" }
 }
 
