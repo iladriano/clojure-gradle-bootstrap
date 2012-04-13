@@ -12,6 +12,13 @@ dependencies {
   compile "org.clojure:clojure:1.3.0"
 }
 
+/* Add Counterclockwise
+eclipse {
+  project {
+    natures "ccw.nature"
+  }
+}
+
 /* Adds clojuresque to the (build) classpath
  */
 buildscript {
