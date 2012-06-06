@@ -27,10 +27,14 @@ buildscript {
   repositories { maven { url "http://clojars.org/repo" } }
  */
   repositories { mavenRepo ( urls: "http://clojars.org/repo" ) }
-/* Clojuresque 1.4.5 causes the following exception (also on milestone-3):
-Cause: Could not generate a proxy class for class clojuresque.ClojureCompileTask.
-Cause: org/gradle/internal/service/ServiceRegistry
+/* Clojuresque 1.4.5 causes the following exception (also on gradle milestone-3):
+  Cause: Could not generate a proxy class for class clojuresque.ClojureCompileTask.
+  Cause: org/gradle/internal/service/ServiceRegistry
  */
+/* Clojuresque 1.4.1 causes the following exception (on gradle m9 and plus):
+  A problem occurred evaluating root project 'clojure-gradle-bootstrap'.
+  > Could not find property 'classesDir' on source set main.
+*/
   dependencies { classpath "clojuresque:clojuresque:1.4.1" }
 }
 
