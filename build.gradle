@@ -1,5 +1,6 @@
 apply plugin: "clojure"
 apply plugin: "eclipse"
+apply plugin: "idea"
 
 aotCompile = true
 
@@ -23,10 +24,10 @@ eclipse {
 /* Adds clojuresque to the (build) classpath
  */
 buildscript {
-/* Works on Gradle 1.0-milestone-9, however it doesn't on milestone-3
+//  Works on Gradle 1.0-milestone-9, however it doesn't on milestone-3
   repositories { maven { url "http://clojars.org/repo" } }
- */
-  repositories { mavenRepo ( urls: "http://clojars.org/repo" ) }
+//  On 1.0-milestone-3
+//  repositories { mavenRepo ( urls: "http://clojars.org/repo" ) }
 /* Clojuresque 1.4.5 causes the following exception (also on gradle milestone-3):
   Cause: Could not generate a proxy class for class clojuresque.ClojureCompileTask.
   Cause: org/gradle/internal/service/ServiceRegistry
@@ -35,6 +36,9 @@ buildscript {
   A problem occurred evaluating root project 'clojure-gradle-bootstrap'.
   > Could not find property 'classesDir' on source set main.
 */
-  dependencies { classpath "clojuresque:clojuresque:1.4.1" }
+// Check latest version https://clojars.org/clojuresque
+//  On 1.0-milestone-3
+//  dependencies { classpath "clojuresque:clojuresque:1.4.1" }
+  dependencies { classpath "clojuresque:clojuresque:1.5.2" }
 }
 
